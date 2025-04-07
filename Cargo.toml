@@ -25,9 +25,9 @@ base64 = "0.22.1"
 ndarray = { version = "0.16.1", features = ["serde", "blas"] }
 blas-src = { version = "0.11", features = ["accelerate"] }
 
-[target.'cfg(target_os = "linux")'.dependencies]
-ndarray = { version = "0.16.1", features = ["serde", "blas"] }
-blas-src = { version = "0.11", features = ["openblas"] }
+# [target.'cfg(target_os = "linux")'.dependencies]
+# ndarray = { version = "0.16.1", features = ["serde", "blas"] }
+# blas-src = { version = "0.11", features = ["openblas"] }
 
 [[test]]
 name = "nn_test"
