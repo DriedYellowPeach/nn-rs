@@ -4,4 +4,8 @@ fn main() {
         // Set the rustc flag for linking to the Accelerate framework on macOS
         println!("cargo:rustc-flags=-l framework=Accelerate");
     }
+
+    if cfg!(target_os = "linux") {
+        println!("cargo:rustc-link-lib=openblas");
+    }
 }

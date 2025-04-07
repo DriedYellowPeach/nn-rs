@@ -1,6 +1,6 @@
 [package]
 name = "nn_rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Neil Wang <wrz750726@gmail.com>"]
 
@@ -25,9 +25,16 @@ base64 = "0.22.1"
 ndarray = { version = "0.16.1", features = ["serde", "blas"] }
 blas-src = { version = "0.11", features = ["accelerate"] }
 
-# [target.'cfg(target_os = "linux")'.dependencies]
-# ndarray = { version = "0.16.1", features = ["serde", "blas"] }
-# blas-src = { version = "0.11", features = ["openblas"] }
+[target.'cfg(target_os = "linux")'.dependencies]
+ndarray = { version = "0.16.1", features = ["serde", "blas"] }
+blas-src = { version = "0.11", default-features = false, features = [
+  "openblas",
+] }
+openblas-src = { version = "0.10", default-features = false, features = [
+  "cblas",
+  "system",
+] }
+
 
 [[test]]
 name = "nn_test"
