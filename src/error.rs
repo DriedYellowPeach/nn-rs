@@ -8,7 +8,7 @@ pub enum NNError {
     #[error("Failed to save model: {0}")]
     SaveModelError(#[from] std::io::Error),
 
-    #[error("Failed to serialize model: {0}")]
+    #[error("Failed to de/serialize model: {0}")]
     SerializationError(#[from] postcard::Error),
 
     #[error("Failed to load training data: {0}")]

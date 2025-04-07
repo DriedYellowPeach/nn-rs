@@ -70,7 +70,8 @@ impl NNBuilder {
     }
 
     pub fn new_from_model_file<P: AsRef<Path>>(model_path: P) -> Result<Self, NNError> {
-        let bts = std::fs::read(model_path)?;
+        let bts =
+            std::fs::read(model_path).map_err(|e| NNError::LoadTrainDataError(e.to_string()))?;
         let builder = postcard::from_bytes(&bts)?;
 
         Ok(builder)

@@ -19,10 +19,15 @@ rand_distr = "0.5.1"
 serde = "1.0.219"
 show-image = { version = "=0.14.0" }
 thiserror = "2.0.12"
+base64 = "0.22.1"
 
 [target.'cfg(target_os = "macos")'.dependencies]
 ndarray = { version = "0.16.1", features = ["serde", "blas"] }
 blas-src = { version = "0.11", features = ["accelerate"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+ndarray = { version = "0.16.1", features = ["serde", "blas"] }
+blas-src = { version = "0.11", features = ["openblas"] }
 
 [[test]]
 name = "nn_test"

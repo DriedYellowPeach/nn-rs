@@ -14,8 +14,6 @@ fn main() {
     let Mnist {
         trn_img, trn_lbl, ..
     } = MnistBuilder::new()
-        // .use_fashion_data() // Comment out this and the changed `.base_path()` to run on the original MNIST
-        //.base_url("<some_other_url>") // Since the base url is sometimes down due to high demand, you can replace is with another
         .base_path("data/") // Comment out this and `use_fashion_data()` to run on the original MNIST
         .label_format_digit()
         .training_set_length(trn_size)
@@ -36,7 +34,7 @@ fn main() {
     let input_2d = train_data.slice(s![item_num, .., ..]).to_owned();
     let image = bw_ndarray2_to_rgb_image(input_2d.clone());
     let input_1d = input_2d.to_shape(28 * 28).unwrap();
-    let nn = NNBuilder::new_from_model_file("data/model_9289.bin")
+    let nn = NNBuilder::new_from_model_file("data/model_9394.bin")
         .unwrap()
         .build()
         .unwrap();
