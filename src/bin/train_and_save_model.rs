@@ -20,12 +20,12 @@ fn main() {
 
     log::info!("Saving model to {}", args[1]);
 
-    let mut nn = NNBuilder::new_from_arch(&[28 * 28, 32, 16, 16, 10])
+    let mut nn = NNBuilder::new_from_arch(&[28 * 28, 100, 32, 32, 10])
         .with_activator(ActivatorType::Sigmoid)
-        .with_learn_rate(0.01)
-        .with_epochs(10000)
-        .with_mini_batch_size(32)
-        .with_target_accuracy(0.95)
+        .with_learn_rate(0.5)
+        .with_epochs(1000)
+        .with_mini_batch_size(30)
+        .with_target_accuracy(0.97)
         .build()
         .unwrap();
 

@@ -4,7 +4,7 @@ pub mod error;
 pub mod nn;
 pub mod prelude;
 
-pub type Float = f32;
+pub type Float = f64;
 
 pub fn recognize_digit(nn: &nn::NN, grayscale_img: &[u8]) -> (usize, Float) {
     let input = grayscale_img
